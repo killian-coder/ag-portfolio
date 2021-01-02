@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block projects_done %}
+<div class="row no-gutters">
+{% for project in projects %}
+   
+<div class="col-lg-6">
+          <a class="portfolio-item" href="{% url 'project_detail' project.pk %}">
+            <div class="caption">
+              <div class="caption-content">
+                <div class="h2">{{ project.title }}</div>
+                <p class="mb-0">{{ project.description }}</p>
+              </div>
+            </div>
+            <img class="img-fluid" src="{% static project.image %}" alt="">
+          </a>
+        </div>
+
+    {% endfor %}
+</div>
+{% endblock %}
